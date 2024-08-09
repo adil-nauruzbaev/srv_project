@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+
 import 'package:srv_project/constants/regexps.dart';
-import 'package:srv_project/helpers/database_helper.dart';
+
 import 'package:srv_project/widgets/custom_form_field.dart';
 import '../providers/auth_provider.dart';
 
@@ -42,16 +43,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               ),
               const SizedBox(height: 20),
               ElevatedButton(
-                onPressed: () async {
+                onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     ref.read(authProvider.notifier).login(
                           _usernameController.text,
                           _passwordController.text,
                         );
-                    final dbHelper = DatabaseHelper();
-
-                    // Заполняем базу данных тестовыми продуктами
-                    await dbHelper.populateTestProducts();
 
                     context.go('/home');
                   }
