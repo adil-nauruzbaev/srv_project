@@ -7,6 +7,8 @@ import 'package:srv_project/widgets/custom_form_field.dart';
 import '../providers/auth_provider.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
+  const LoginScreen({super.key});
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -19,7 +21,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Login')),
+      appBar: AppBar(title: const Text('Login')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
@@ -54,7 +56,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     context.go('/home');
                   }
                 },
-                child: Text('Login'),
+                child: const Text('Login'),
               ),
             ],
           ),

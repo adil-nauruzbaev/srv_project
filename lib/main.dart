@@ -10,6 +10,8 @@ void main() {
 }
 
 class MyApp extends ConsumerWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final auth = ref.watch(authProvider);
