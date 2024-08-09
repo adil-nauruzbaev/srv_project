@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:srv_project/helpers/database_helper.dart';
 import 'package:srv_project/providers/auth_provider.dart';
 
 class ProfileScreen extends ConsumerWidget {
@@ -23,6 +24,22 @@ class ProfileScreen extends ConsumerWidget {
                 context.go('/');
               },
               child: const Text('Logout'),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () async {
+                final dbHelper = DatabaseHelper();
+                await dbHelper.populateTestProducts(await dbHelper.database);
+              },
+              child: const Text('Insert products'),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () async {
+                final dbHelper = DatabaseHelper();
+                await dbHelper.deleteAllProducts(await dbHelper.database);
+              },
+              child: const Text('Delete products'),
             ),
           ],
         ),
