@@ -6,7 +6,7 @@ import 'package:srv_project/screens/home_screen.dart';
 import 'package:srv_project/screens/login_screen.dart';
 
 void main() {
-  runApp(ProviderScope(child: MyApp()));
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends ConsumerWidget {
@@ -21,11 +21,11 @@ class MyApp extends ConsumerWidget {
         routes: [
           GoRoute(
             path: '/',
-            builder: (context, state) => LoginScreen(),
+            builder: (context, state) => const LoginScreen(),
           ),
           GoRoute(
             path: '/home',
-            builder: (context, state) => HomeScreen(),
+            builder: (context, state) => const HomeScreen(),
           ),
         ],
       ),
