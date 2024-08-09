@@ -20,6 +20,13 @@ class ProductScreen extends ConsumerWidget {
               showSearch(context: context, delegate: ProductSearchDelegate());
             },
           ),
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: () {
+              // ignore: unused_result
+              ref.refresh(productProvider);
+            },
+          ),
         ],
       ),
       body: productList.when(
