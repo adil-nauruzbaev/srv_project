@@ -45,20 +45,19 @@ class DatabaseHelper {
             imageUrl TEXT
           )
         ''');
+
+        await populateTestProducts(db);
       },
     );
   }
 
-  Future<void> deleteAllProducts() async {
-    final db = await database;
+  Future<void> deleteAllProducts(Database db) async {
     await db.delete('products');
   }
 
-  Future<void> populateTestProducts() async {
-    final db = await database;
-
+  Future<void> populateTestProducts(Database db) async {
     // Удаление всех товаров перед вставкой новых
-    await deleteAllProducts();
+    await deleteAllProducts(db);
 
     // Вставка новых товаров
     for (Product product in productsToInsert) {
